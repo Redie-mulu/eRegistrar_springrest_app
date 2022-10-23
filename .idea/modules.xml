@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/lab collection.iml" filepath="$PROJECT_DIR$/lab collection.iml" />
       <module fileurl="file://$PROJECT_DIR$/lab11-springrest-eregistrarapp/lab11-springrest-eregistrarapp.iml" filepath="$PROJECT_DIR$/lab11-springrest-eregistrarapp/lab11-springrest-eregistrarapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab12-springsecurity-eregistrarapp/lab12-springsecurity-eregistrarapp.iml" filepath="$PROJECT_DIR$/lab12-springsecurity-eregistrarapp/lab12-springsecurity-eregistrarapp.iml" />
     </modules>
   </component>
 </project>

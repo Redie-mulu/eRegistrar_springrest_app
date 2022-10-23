@@ -7,14 +7,10 @@ import edu.miu.cs.cs425.eregistrarapp.repository.StudentRepository;
 import edu.miu.cs.cs425.eregistrarapp.service.StudentService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import javax.print.attribute.standard.PageRanges;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 

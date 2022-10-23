@@ -7,15 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="lab11-springrest-eregistrarapp" />
+        <module name="lab12-springsecurity-eregistrarapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="lab11-springrest-eregistrarapp" target="17" />
+      <module name="lab12-springsecurity-eregistrarapp" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="lab11-springrest-eregistrarapp" options="-parameters" />
+      <module name="lab12-springsecurity-eregistrarapp" options="-parameters" />
     </option>
   </component>
 </project>

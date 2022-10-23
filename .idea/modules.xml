@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/lab collection.iml" filepath="$PROJECT_DIR$/lab collection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lab11-springrest-eregistrarapp/lab11-springrest-eregistrarapp.iml" filepath="$PROJECT_DIR$/lab11-springrest-eregistrarapp/lab11-springrest-eregistrarapp.iml" />
+    </modules>
+  </component>
+</project>

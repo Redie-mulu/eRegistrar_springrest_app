@@ -7,6 +7,8 @@ import edu.miu.cs.cs425.eregistrarapp.repository.StudentRepository;
 import edu.miu.cs.cs425.eregistrarapp.service.StudentService;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -29,6 +31,12 @@ public class StudentServiceImp implements StudentService {
     public List<Student> getAllStudents( ) {
         return  studentRepository.findAll(Sort.by(Sort.Direction.ASC, "firstName"));
 //        return  studentRepository.findAll(PageRequest.of(pageNo, 3, Sort.Direction.ASC, "firstName"));
+    }
+
+    @Override
+    public Page<Student> getAllStudents(int pageNo) {
+//        return  studentRepository.findAll(Sort.by(Sort.Direction.ASC, "firstName"));
+        return  studentRepository.findAll(PageRequest.of(pageNo, 3, Sort.Direction.ASC, "firstName"));
     }
 
     @Override
@@ -85,6 +93,12 @@ public class StudentServiceImp implements StudentService {
         Student student = modelMapper.map(studentRequest, Student.class);
         studentRepository.save(student);
         return student;
+//        Student s =  studentRepository.findStudentByStudentId(student.getStudentId());
+//        s = student;
+    }
+    @Override
+    public void updateStudent(Student student) {
+        studentRepository.save(student);
 //        Student s =  studentRepository.findStudentByStudentId(student.getStudentId());
 //        s = student;
     }

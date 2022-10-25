@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>e-registrar website - Add New Student Registration form</title>
+    <style>
+        form {
+            background: palevioletred;
+        }
+        .error{
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+    <header th:replace="fragments/header :: header"></header>
+    <main>
+        <h1>eRegistrar - New Student registration Form</h1>
+        <div style="border: 1px solid;padding: 1em;">
+            <div>
+                Fields marked with asterisk (*) are required.
+            </div>
+            <form method="post" action="/eregistrar/student/new" th:object="${student}">
+                <fieldset>
+                    <div>
+                        <label for="studentNumber">Student Number*</label>
+                    </div>
+                    <div>
+                        <div><span th:if="${#fields.hasErrors('studentNumber')}" th:errors="*{studentNumber}" class="error"></span></div>
+                        <input name="studentNumber" type="text" id="studentNumber" th:value="${student.studentNumber}" autofocus>
+                    </div>
+
+
+<!--                    <legend>input</legend>-->
+                    <div>
+                        <label for="firstName">Student FirstName*</label>
+                    </div>
+                    <div>
+                        <input name="firstName" type="text" id="firstName" th:value="${student.firstName}" required>
+                    </div>
+                    <div>
+                        <label for="middleName">Student Middle Name</label>
+                    </div>
+                    <div>
+                        <input name="middleName" type="text" id="middleName" th:field="${student.middleName}">
+                    </div>
+                    <div>
+                        <label for="lastName">Student Last Name *</label>
+                    </div>
+                    <div>
+                        <input name="lastName" type="text" id="lastName" th:field="${student.lastName}" required>
+                    </div>
+                    <div>
+                        <label for="cgpa">CGPA*</label>
+                    </div>
+                    <div>
+                        <input name="cgpa" type="number" step="0.01" id="cgpa" th:field="${student.cgpa}" required>
+                    </div>
+<!--                    enrollment date-->
+                    <div>
+                        <label for="enrollmentDate">Enrollment Date</label>
+                    </div>
+                    <div>
+                        <input name="enrollmentDate" type="date" id="enrollmentDate" th:field="${student.enrollmentDate}">
+                    </div>
+                    <div>
+                        <label for="isInternational">IsInternational</label>
+                    </div>
+                    <div>
+                        <select name = "isInternational" id="isInternational" th:field="${student.isInternational}" required >
+                            <option value = ""></option>
+                            <option value = "no" >No</option>
+                            <option value = "yes">Yes</option>
+
+                        </select>
+<!--                        <input name="isInternational" type="text" id="isInternational" th:field="${student.isInternational}">-->
+                    </div>
+
+                </fieldset>
+                <div>
+                    <input type="submit" value="Register Student">
+                </div>
+<!--                <div style="margin-top: 1em;">-->
+<!--                    <a class="std-lnk-btn" href="/eregistrar/student/list">Cancel</a>-->
+<!--                    <input class="std-btn" type="reset" value="Reset">-->
+<!--                    <input class="std-btn" type="submit" value="Add Publisher">-->
+<!--                </div>-->
+            </form>
+        </div>
+    </main>
+</body>
+</html>

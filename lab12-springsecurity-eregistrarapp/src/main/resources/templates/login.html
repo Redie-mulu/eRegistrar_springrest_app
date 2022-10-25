@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<!--      layout:decorate="~{layouts/master-layout}">-->
+<head>
+    <meta charset="UTF-8">
+    <title>The eRegistrar - a Spring Security Demo webapp - Sign In</title>
+
+</head>
+<body>
+<h>wellcom</h>
+<div>
+    <h3>Sign In</h3>
+    <hr/>
+            <div class="col-md-6">
+                <div class="card border-secondary mb-4" style="max-width: 60rem;">
+                    <div class="card-header">Use your eLibrary Account</div>
+                    <div class="card-body">
+                        <h4 class="card-title">Sign In with your eLibrary Account</h4>
+                        <p class="card-text">
+                            Enter your eLibrary Username and Password below, to sign in.
+                        </p>
+                        <div>
+                            <form name="formLogin" th:action="@{/eregistrar/public/login}" method="post">
+                                <div th:if="${param.error}" class="alert alert-dismissible alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    Invalid username and/or password.
+                                </div>
+                                <div th:if="${param.logout}" class="alert alert-dismissible alert-primary">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    You have been signed out.
+                                </div>
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input id="username" name="username" type="text" class="form-control" autofocus="autofocus"/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input id="password" name="password" type="password" class="form-control"/>
+                                </div>
+                                <div style="float:right;">
+                                    <a href="/eregistrar/public/home" class="btn btn-outline-warning">Cancel</a>&nbsp;&nbsp;&nbsp;
+                                    <button id="btnSubmit" type="submit" class="btn btn-outline-success">Sign In</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

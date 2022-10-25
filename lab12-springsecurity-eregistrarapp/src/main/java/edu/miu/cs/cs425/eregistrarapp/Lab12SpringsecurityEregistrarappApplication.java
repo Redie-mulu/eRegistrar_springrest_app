@@ -1,20 +1,30 @@
 package edu.miu.cs.cs425.eregistrarapp;
 
+import edu.miu.cs.cs425.eregistrarapp.model.Role;
 import edu.miu.cs.cs425.eregistrarapp.model.Student;
+import edu.miu.cs.cs425.eregistrarapp.model.User;
+import edu.miu.cs.cs425.eregistrarapp.repository.RoleRepository;
+import edu.miu.cs.cs425.eregistrarapp.repository.UserRepository;
 import edu.miu.cs.cs425.eregistrarapp.service.StudentService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class Lab12SpringsecurityEregistrarappApplication implements CommandLineRunner {
 
     private StudentService studentService;
+    private RoleRepository roleRepository;
+    private UserRepository userRepository;
 
-    public Lab12SpringsecurityEregistrarappApplication(StudentService studentService) {
+    public Lab12SpringsecurityEregistrarappApplication(StudentService studentService, RoleRepository roleRepository, UserRepository userRepository) {
         this.studentService = studentService;
+        this.roleRepository = roleRepository;
+        this.userRepository = userRepository;
     }
 
     public static void main(String[] args) {
@@ -55,6 +65,23 @@ public class Lab12SpringsecurityEregistrarappApplication implements CommandLineR
         studentService.addStudent(s13);
         studentService.addStudent(s14);
         studentService.addStudent(s15);
+
+
+        Role r1 = new Role(null, "ADMIN");
+        Role r2 = new Role(null, "STUDENT");
+        Role r3 = new Role(null, "REGISTRAR");
+
+        roleRepository.save(r1);
+        roleRepository.save(r2);
+        roleRepository.save(r3);
+        List<Role> roles = new ArrayList<>();
+        roles.add(r1);
+        roles.add(r2);
+        roles.add(r3);
+
+        User u1 = new User(null, "Redi", "Mulu", "Wolde", "redimulu@gmail.com", "test1234",  "redimulu@gmail.com", roles);
+
+//        userRepository.save(u1);
     }
 
 }

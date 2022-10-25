@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/lab11-springrest-eregistrarapp/pom.xml" />
         <option value="$PROJECT_DIR$/lab12-springsecurity-eregistrarapp/pom.xml" />
+        <option value="$PROJECT_DIR$/lab12-springsecurity-jwt-eregistrarapp/pom.xml" />
       </list>
     </option>
   </component>

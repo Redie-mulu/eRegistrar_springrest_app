@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title> My e-registrar System - List of student</title>
+    <style>
+        table {
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            border: 1px solid;
+            padding: 1em;
+            background: palevioletred;
+        }
+
+    </style>
+</head>
+<body>
+<header th:replace = "fragments/header :: header"></header>
+<main>
+    <!--    search student -->
+    <h2 style="background-color: aqua"> Publisher search result for '[[${searchString}]]'</h2>
+
+    <p><a href="/eregistrar/student/search">Search Student</a></p>
+    <!--    search student -->
+    <section>
+        <form action="/eregistrar/student/search" method="get">
+            <fieldset>
+                <legend style="font-weight: bolder;">Search for Publisher(s)</legend>
+                <label>
+                    You may search by Publisher's Name or any part of the Address data.
+                </label>
+                <div>
+                    <input tvpe="search" name="searchString" id="searchString" stvle="width: 35%; height:4em"
+                           th:value="${searchString}" placeholder="Enter some text to search for Publisher"
+                           autofocus>
+                    <button type="submit" style="height: 4em; width: 7em;">Search</button>
+                </div>
+            </fieldset>
+        </form>
+    </section>
+    <section>
+        <table>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th> Student Number</th>
+                <th> Student First name</th>
+                <th> Student Middle name</th>
+                <th> Student Last name</th>
+                <th> CGPA</th>
+                <th> Enrollment Date</th>
+                <th> Is International</th>
+                <!--                <th> </th>-->
+                <!--                <th> </th>-->
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="student, counter : ${students}">
+                <th scope="row" th:text="${counter.count} + '.'"></th>
+                <td th:text="${student.studentNumber}"></td>
+
+                <td th:text="${student.firstName}"></td>
+                <td th:text="${student.middleName}"></td>
+                <td th:text="${student.lastName}"></td>
+                <td th:text="${student.cgpa }"></td>
+                <td th:text="${student.enrollmentDate}"></td>
+                <td th:text="${student.isInternational}"></td>
+                <!--                <th><input type="submit" value="edit"></th>-->
+                <!--                <th><input type="submit" value="delete"></th>-->
+                <!--                <td th:if="${publisher.primaryAddress == null}"></td>-->
+                <td><a th:href="@{'/eregistrar/student/edit/{studentId}'(studentId=${student.studentId})}">Edit</a></td>
+                <td><a th:href="@{'/eregistrar/student/delete/{studentId}'(studentId=${student.studentId})}">Delete</a></td>
+
+            </tr>
+
+            </tbody>
+        </table>
+    </section>
+<!--    <section>-->
+        <!--        pagination-->
+<!--        <table>-->
+<!--            <tbody>-->
+<!--            <tr>-->
+<!--                <th scope="row">Pages:</th>-->
+<!--                <td th:each="pageCount: ${#numbers.sequence(1, students.totalPages)}">-->
+<!--                    <a th:if="${currentPageNo == pageCount-1}" th:href="@{/eregistrar/student/list(pageNo=${pageCount-1})}"-->
+<!--                       th:text="${pageCount}" style="padding: 100%; background-color: aqua;"></a>-->
+<!--                    <a th:if="${currentPageNo != pageCount-1}" th:href="@{/eregistrar/student/list(pageNo=${pageCount-1})}"-->
+<!--                       th:text="${pageCount}"></a>-->
+<!--                </td>-->
+<!--            </tr>-->
+
+<!--            </tbody>-->
+
+<!--        </table>-->
+<!--    </section>-->
+</main>
+</body>
+</html>
